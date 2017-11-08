@@ -1,0 +1,43 @@
+header.home-header
+	= image_tag 'logo_navbar.png'
+	h1
+		br
+		| Frase inspiradora apantallante (Slogan)
+
+.container_fluid.home-content
+	- @services.each_with_index do |service, index|
+		.row.row-eq-height.service-content
+			- if index % 2 == 0
+				.col-xs-offset-1.col-xs-6
+					.col-container
+						h2
+							= service.name
+						br
+						h4
+							= service.description
+						br
+						= link_to public_service_path(name: service.name), class: 'btn btn-turquoise'
+							| Más información
+				.col-xs-4
+					- if !service.image.blank?
+						= image_tag "services/#{service.image}", style: 'width: 100%;'
+					- else
+						= image_tag 'placeholder.png', style: 'width: 100%;'
+
+			- else
+				.col-xs-offset-1.col-xs-4
+					- if !service.image.blank?
+						= image_tag "services/#{service.image}", style: 'width: 100%;'
+					- else
+						= image_tag 'placeholder.png', style: 'width: 100%;'
+				.col-xs-7
+					h2
+						= service.name
+					br
+					h4
+						= service.description
+					br
+					= link_to public_service_path(name: service.name), class: 'btn btn-positive'
+						| Más información
+
+	/ Mapa

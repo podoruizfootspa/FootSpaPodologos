@@ -1,0 +1,62 @@
+header.services-header
+	.services-header-title
+		h1
+			= fa_icon 'leaf'
+			|  Servicios
+	br
+	.row.search-container
+		.col-xs-offset-2.col-xs-8
+			.panel
+				.panel-heading.clearfix
+					= fa_icon 'search'
+					|  Búsqueda
+					= link_to new_private_service_path, class: 'btn btn-turquoise pull-right'
+						= fa_icon 'plus'
+				.panel-body
+					.form
+						= search_form_for @q, url: private_services_path do |f|
+							.form-body
+								.row
+									.col-xs-4
+										.form-group
+											= f.label :name_cont, 'Nombre del servicio'
+											= f.search_field :name_cont, class: 'form-control'
+									.col-xs-4
+										.form-group
+											= f.label :price_eq, 'Precio'
+											= f.select :price_eq, options_for_select(Service.distinct.order(price: :asc).pluck(:price)), { include_blank: true }, class: 'form-control'
+									.col-xs-4
+										.form-group
+											br
+											= f.submit 'Buscar', class: 'btn btn-positive', style: 'margin-right: 10px;'
+											= link_to 'Limpiar', request.path, class: 'btn btn-default'
+
+.container_fluid.content
+	.row
+		- @services.each_with_index do |service, index|
+			/- if index % 2 == 0
+				.col-xs-offset-2.col-xs-4
+					= link_to private_service_path(service), class: 'thumbnail'
+						= image_tag !service.image.blank? ? "services/#{service.image}" : 'placeholder.png', class: 'thumbnail-image'
+						.caption
+							strong
+								= "#{service.name}"
+						.caption
+							= "$#{service.price}"
+			/- else
+				.col-xs-4
+					= link_to private_service_path(service), class: 'thumbnail'
+						= image_tag !service.image.blank? ? "services/#{service.image}" : 'placeholder.png', class: 'thumbnail-image'
+						.caption
+							strong
+								= "#{service.name}"
+						.caption
+							= "$#{service.price}"
+			.col-xs-4
+				= link_to private_service_path(service), class: 'thumbnail'
+					= image_tag !service.image.blank? ? "services/#{service.image}" : 'placeholder.png', class: 'thumbnail-image'
+					.caption
+						strong
+							= "#{service.name}"
+					.caption
+						= "$#{service.price}"

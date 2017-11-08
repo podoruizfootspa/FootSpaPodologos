@@ -1,0 +1,86 @@
+nav.navbar.navbar-inverse.navbar-fixed-top
+	.container-fluid
+		.navbar-header
+			button.navbar-toggle.collapsed type='button' data-toggle='collapse' data-target='#collapsable-navbar' aria-expanded='false'
+				span.sr-only
+					| Toggle navigation
+				span.icon-bar
+				span.icon-bar
+				span.icon-bar
+			a.navbar-brand href='#'
+				= image_tag 'logo_navbar.png', alt: 'Brand', class: 'navbar-header-logo'
+				span.navbar-header-text
+					| PodoRuiz
+		#collapsable-navbar.collapse.navbar-collapse
+			ul.nav.navbar-nav.navbar-right.public-navbar-ul
+				
+				- if action_name == 'home'
+					li.active
+						= link_to public_home_path
+							| Inicio
+				- else
+					li
+						= link_to public_home_path
+							| Inicio
+
+				- classifications = Classification.all
+
+				- classifications.each do |classification|
+					- services = Service.joins(services_classifications: :classification).where("classifications.id = #{classification[:id]}")
+					li.dropdown
+						a.dropdown-toggle href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'
+							= "#{classification[:title]} "
+							= fa_icon 'angle-down'
+						ul.dropdown-menu
+							- services.each do |service|
+								- if action_name == 'service' && params[:name] == service
+									li.active
+										= link_to public_service_path(name: service[:name])
+											= service[:name]
+								- else
+									li
+										= link_to public_service_path(name: service[:name])
+											= service[:name]
+
+				/- services = Service.all.pluck(:name)
+				
+				/- if services.count <= 4
+					- services.each do |service|
+						- if action_name == 'service' && params[:name] == service
+							li.active
+								= link_to public_service_path(name: service)
+									= service
+						- else
+							li
+								= link_to public_service_path(name: service)
+									= service
+				/- else
+					li.dropdown
+						a.dropdown-toggle href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'
+							| Servicios 
+							= fa_icon 'angle-down'
+						ul.dropdown-menu
+							- services.each do |service|
+								- if action_name == 'service' && params[:name] == service
+									li.active
+										= link_to public_service_path(name: service)
+											= service
+								- else
+									li
+										= link_to public_service_path(name: service)
+											= service
+
+				- if user_signed_in?
+					li
+						= link_to private_services_path
+							| Administración
+
+				li.login-btn
+					- if user_signed_in?
+						= link_to destroy_user_session_path, method: :delete
+							i.fa.fa-sign-out.fa-lg
+							/| Cerrar Sesión
+					- else
+						= link_to new_user_session_path
+							i.fa.fa-sign-in.fa-lg
+							/| Iniciar Sesión

@@ -1,0 +1,125 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require_global
+ */
+
+html{
+	height: 100%;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	/*font-family: 'Roboto', Arial, sans-serif;*/
+	height: 100%;
+}
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+
+.btn-turquoise{
+	background-color: #1abc9c;
+	color: #fff;
+}
+
+.btn-turquoise:hover,
+.btn-turquoise:active{
+	background-color: #16a085;
+	color: #fff;
+}
+
+.btn-emerald{
+	background-color: #2ecc71;
+	color: #fff;
+}
+
+.btn-emerald:hover,
+.btn-emerald:active{
+	background-color: #27ae60;
+	color: #fff;
+}
+
+.btn-peter-river{
+	background-color: #3498db;
+	color: #fff;
+}
+
+.btn-peter-river:hover,
+.btn-peter-river:active{
+	background-color: #2980b9;
+	color: #fff;
+}
+
+.btn-positive{
+	background-color: #90c653;
+	color: #fff;
+}
+
+.btn-positive:hover,
+.btn-positive:active{
+	background-color: #84b54c;
+	color: #fff;
+}
+
+.btn-alizarin{
+	background-color: #e74c3c;
+	color: #fff;
+}
+
+.btn-alizarin:hover,
+.btn-alizarin:active{
+	background-color: #c0392b;
+	color: #fff;
+}
+
+.btn-wet-asphalt{
+	background-color: #34495e;
+	color: #fff;
+}
+
+.btn-wet-asphalt:hover,
+.btn-wet-asphalt:active{
+	background-color: #2c3e50;
+	color: #fff;
+}
+
+.btn-amethyst{
+	background-color: #9b59b6;
+	color: #fff;
+}
+
+.btn-amethyst:hover,
+.btn-amethyst:active{
+	background-color: #8e44ad;
+	color: #fff;
+}
+
+.btn-sun-flower{
+	background-color: #f1c40f;
+	color: #fff;
+}
+
+.btn-sun-flower:hover,
+.btn-sun-flower:active{
+	background-color: #f39c12;
+	color: #fff;
+}

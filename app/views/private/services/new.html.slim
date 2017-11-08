@@ -1,0 +1,43 @@
+header.new-service-header
+	.new-service-header-title
+		h1
+			= fa_icon 'pencil'
+			|  Nuevo servicio
+
+.container_fluid.new-service-form-content
+	= form_for [:private, @service] do |f|
+		form
+			.row
+				.col-xs-offset-2.col-xs-6
+					.form-group
+						= f.label :name
+							| Nombre
+						= f.text_field :name, autofocus: true, class: 'form-control', placeholder: 'Nombre del servicio'
+				.col-xs-2
+					.form-group
+						= f.label :price
+							| Precio
+						.input-group
+							.input-group-addon
+								|$
+							= f.number_field :price, class: 'form-control', placeholder: 'Precio del servicio'
+			.row
+				.col-xs-offset-2.col-xs-8
+					.form-group
+						= f.label :invitation
+							| Invitación
+						= f.text_field :invitation, class: 'form-control', placeholder: 'Invitación a contratar el servicio'
+					.form-group
+						= f.label :description
+							| Descripción
+						= f.text_area :description, class: 'form-control', placeholder: 'Descripción del nuevo servicio.'
+
+					.form-group
+						= f.label :image
+							| Imagen
+						= f.file_field :image
+			.row
+				.col-xs-offset-2.col-xs-8.new-service-form-btns-col
+					= f.submit 'Guardar', class: 'btn btn-positive btn-save'
+					= link_to private_services_path, class: 'btn btn-alizarin'
+						| Cancelar

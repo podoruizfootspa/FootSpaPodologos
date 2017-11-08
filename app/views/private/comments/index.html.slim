@@ -1,0 +1,47 @@
+header.comments-header
+	.comments-header-title
+		h1
+			= fa_icon 'comments'
+			|  Comentarios
+
+.container_fluid.comments-content
+	.row.comments-top-buttons
+		.col-xs-12
+			.btn.btn-to-approve-comments
+				= link_to private_comments_path(status: 1)
+					= fa_icon 'pencil-square-o'
+					= " Pendientes (#{@count_to_approve_comments})"
+					
+			.btn.btn-approved-comments
+				= link_to private_comments_path(status: 0)
+					= fa_icon 'check-square-o'
+					= " Aprobados (#{@count_approved_comments})"
+
+	- @comments.each do |comment|
+		.row
+			.col-xs-offset-1.col-xs-2
+				= image_tag 'user_01.png', class: 'user-image'
+			.col-xs-7
+				.panel.arrow
+					.panel-body
+						.row
+							.col-xs-3
+								strong
+									= comment.users_name
+								br
+								= Service.find(comment.service_id).name
+								br
+								small
+									= comment.created_at.strftime('%d/%m/%Y')
+							.col-xs-7
+								= comment.body
+							- if comment.status == 'No_aprobado'
+								.col-xs-2.comments-btns
+									.btn.btn-approve-comment
+										= link_to private_approve_comment_path(comment: comment.id)
+											= fa_icon 'check'
+											|  Aprobar
+									.btn.btn-deny-comment
+										= link_to private_comment_path(comment.id), method: :delete
+											= fa_icon 'times'
+											|  Eliminar

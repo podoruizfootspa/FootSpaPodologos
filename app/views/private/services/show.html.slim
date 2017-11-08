@@ -1,0 +1,31 @@
+header.show-services-header
+	.services-header-title
+		h1
+			= fa_icon 'leaf'
+			= " #{@service.name}"
+
+.container-fluid.content-show
+	.row.show-service-top-buttons
+		.col-xs-12
+			= link_to edit_private_service_path(@service), class: 'btn btn-peter-river left-btn-service'
+				= fa_icon 'pencil-square-o'
+				|  Editar
+
+			=link_to private_service_path(@service), method: :delete, class: 'btn btn-alizarin left-btn-service', data: { confirm: '¿Seguro que desea eliminar este servicio?' }
+				= fa_icon 'trash'
+				|  Eliminar
+
+			=link_to private_services_path, class: 'btn btn-positive'
+				= fa_icon 'angle-double-left'
+				|  Regresar
+
+	.row
+		.col-xs-offset-1.col-xs-3
+			= image_tag !@service.image.blank? ? "services/#{@service.image}" : 'placeholder.png', class: 'service-show-image'
+
+		.col-xs-8
+			= "$#{@service.price}"
+			br
+			h4
+				| Invitación:
+			= @service.invitation

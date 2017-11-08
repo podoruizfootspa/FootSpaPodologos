@@ -1,0 +1,102 @@
+/*	General navbar-inverse style	*/
+.navbar-inverse{
+	background: #424242;
+	border: #424242;
+	height: 64px;
+	text-align: center;
+}
+
+.navbar-inverse .container-fluid{
+	height: 100%;
+}
+
+
+/*	Navbar brand zone style	*/
+.navbar-inverse .navbar-header{
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	height: 100%;
+	width: 17%;
+}
+
+.navbar-inverse .navbar-header a{
+	display: block;
+	height: 100%;
+	width: 100%;
+	color: #fff;
+	line-height: 30px;
+	font-size: 20px;
+	font-weight: 400;
+	letter-spacing: .3px;
+}
+
+.navbar-header-logo{
+	float: left;
+	height: 50px;
+	margin-left: 15px;
+	margin-top: -10px;
+}
+
+.navbar-inverse .navbar-collapse{
+	display: inline-block;
+	text-align: center;
+	height: 100%;
+}
+
+
+/*	Navbar buttons list style and animations	*/
+.navbar-inverse #collapsable-navbar ul{
+	margin-right: 10%;
+}
+
+.navbar-inverse .navbar-nav li a{
+	display: inline-block;
+	height: 64px;
+	line-height: 30px;
+	color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.navbar-inverse .navbar-nav li a:hover,
+.navbar-inverse .navbar-nav li a:active{
+	color: #90c653;
+	border-bottom: 5px solid;
+	border-color: #90c653;
+}
+
+.navbar-inverse .navbar-nav .active a,
+.navbar-inverse .navbar-nav .active a:hover,
+.navbar-inverse .navbar-nav .active a:focus{
+	color: #fff;
+	background-color: #90c653;
+	border-bottom: 5px solid;
+	border-color: #90c653;
+}
+
+.navbar-inverse .navbar-nav .login-btn{
+	margin-left: 50px;
+}
+
+.navbar-inverse .navbar-nav .dropdown-menu{
+	margin: 0 !important;
+	padding: 0;
+	border: 0;
+}
+
+.navbar-inverse .navbar-nav ul li a{
+	display: block;
+	text-decoration: none;
+	width: 100%;
+	height: 150%;
+	background: #424242;
+	color: #e9e9e9;
+}
+
+.navbar-inverse .navbar-nav ul li a:hover,
+.navbar-inverse .navbar-nav ul li a:active{
+	border-bottom: 0;
+}

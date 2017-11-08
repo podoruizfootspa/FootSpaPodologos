@@ -1,0 +1,141 @@
+/*	Page header style	*/
+.comments-header{
+	position: relative;
+	background: linear-gradient(
+		rgba(144, 198, 83, 0.5),
+		rgba(144, 198, 83, 0.5)
+		),
+		url(../comments_header.jpg);
+	background-size: cover;
+	background-position: bottom center;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	transition: transform 0.5s, padding-right 0.5s ease;
+	height: 30%;
+	padding-top: 64px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+
+/*	Page content style	*/
+.comments-content{
+	padding-top: 2%;
+	min-height: 70%;
+	padding-bottom: 2%;
+	background-color: #eceff1;
+	text-align: center;
+}
+
+.comments-content .row{
+	width: 100%;
+	margin: 0;
+}
+
+
+/*	Top button style	*/
+.comments-content .comments-top-buttons{
+	margin-bottom: 2%;
+}
+
+.comments-content .btn-to-approve-comments{
+	background-color: #424242;
+	display: inline-block;
+	margin-right: 15px;
+	transition: 0.2s;
+}
+
+.comments-content .btn-to-approve-comments:hover,
+.comments-content .btn-to-approve-comments:active{
+	background-color: #333;
+}
+
+.comments-content .btn-to-approve-comments a{
+	color: #fff;
+	text-decoration: none;
+}
+
+.comments-content .btn-approved-comments{
+	background-color: #38b29a;
+	display: inline-block;
+	transition: 0.2s;
+}
+
+.comments-content .btn-approved-comments:hover,
+.comments-content .btn-approved-comments:active{
+	background-color: #319c87;
+}
+
+.comments-content .btn-approved-comments a{
+	color: #fff;
+	text-decoration: none;
+}
+
+
+/*	Comments boxes style	*/
+.comments-content .user-image{
+	width: 100%;
+	padding-left: 45%;
+	padding-right: 5%;
+}
+
+.comments-content .panel{
+	border: 0;
+	filter: drop-shadow(1px 1px 3px #90c653);
+}
+
+.comments-content .panel.arrow:after{
+  left: 1px;
+  top: 30px;
+  border-right-color: #fff;
+  border-width: 15px;
+  border-left: 0;
+}
+
+.comments-content .arrow:after{
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent;
+}
+
+.comments-content .panel .btn-approve-comment{
+	display: block;
+	margin-bottom: 10px;
+	background-color: #90c653;
+	transition: 0.2s;
+}
+
+.comments-content .panel .btn-approve-comment:hover,
+.comments-content .panel .btn-approve-comment:active{
+	background-color: #84b54c;
+}
+
+.comments-content .panel .btn-approve-comment a{
+	color: #fff;
+	text-decoration: none;
+}
+
+.comments-content .panel .btn-deny-comment{
+	display: block;
+	background-color: #e74c3c;
+	transition: 0.2s;
+}
+
+.comments-content .panel .btn-deny-comment:hover,
+.comments-content .panel .btn-deny-comment:active{
+	background-color: #d14536;
+}
+
+.comments-content .panel .btn-deny-comment a{
+	color: #fff;
+	text-decoration: none;
+}
+
+.comments-content .panel .comments-btns{
+	padding-right: 0;
+}

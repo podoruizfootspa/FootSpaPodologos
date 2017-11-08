@@ -1,0 +1,39 @@
+.login-header{
+	position: relative;
+	height: 100%;
+	background-color: #333;
+	padding-top: 50px;
+}
+
+.login-header .login-header-image{
+	text-align: center;
+}
+
+.login-header .login-logo-img{
+	max-width: 10%;
+}
+
+.login-header .login-form-container{
+	width: 30%;
+	margin: 40px auto 10px;
+	background-color: #eceff1;
+	border-radius: 7px;
+	padding: 10px 30px 30px;
+	color: #333;
+	text-align: center;
+}
+
+.login-header .login-form-container .field,
+.login-header .login-form-container h3{
+	padding-bottom: 15px;
+	text-align: center;
+}
+
+.actions{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.btn-new-session{
+	margin-right: 10px;
+}

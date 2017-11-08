@@ -1,0 +1,71 @@
+/*	Services Classifications new header style	*/
+.new-services-classification-header{
+	position: relative;
+	background: linear-gradient(
+		rgba(144, 198, 83, 0.5),
+		rgba(144, 198, 83, 0.5)
+		),
+		url(../classifications_header.jpg);
+	background-size: cover;
+	background-position: top center;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	transition: transform 0.5s, padding-right 0.5s ease;
+	height: 30%;
+	padding-top: 64px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+}
+
+/*	Services Classifications new content style */
+.new-services-classification-content{
+	padding: 2% 0;
+	min-height: 70%;
+	background-color: #eceff1;
+	text-align: center;
+}
+
+.new-services-classification-content .row{
+	width: 100%;
+	margin: 0;
+}
+
+.new-services-classification-content .new-service-classification-top-buttons{
+	text-align: center;
+	margin-bottom: 2%;
+}
+
+.new-services-classification-content .panel{
+	border: 0;
+}
+
+.new-services-classification-content .panel .panel-heading{
+	text-transform: uppercase;
+	background-color: #424242;
+	color: #fff;
+}
+
+.new-services-classification-content .panel .list-group-item{
+	padding: 0;
+}
+
+.new-services-classification-content .panel .list-group-item .service-image-col{
+	padding: 0;
+}
+
+.new-services-classification-content .panel .list-group-item .service-image{
+	width: 100%;
+}
+
+.new-services-classification-content .panel .list-group-item .service-description-col{
+	height: 100%;
+	padding: 15px;
+}
+
+.new-services-classification-content .panel .list-group-item .service-actions-col{
+	height: 100%;
+	padding: 15px;
+}

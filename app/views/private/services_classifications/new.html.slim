@@ -1,0 +1,35 @@
+header.new-services-classification-header
+	.content-header-title
+		h1
+			= fa_icon 'cube'
+			= " Nuevo servicio para #{@classification.title}"
+
+.container_fluid.new-services-classification-content
+	.row.new-service-classification-top-buttons
+		.col-xs-12
+			= link_to private_classifications_path, class: 'btn btn-turquoise'
+				= fa_icon 'angle-double-left'
+				|  Regresar
+
+	.row
+		.col-xs-offset-1.col-xs-10
+			.panel
+				.panel-heading.clearfix
+					= fa_icon 'leaf'
+					|  Servicios Disponibles
+					= link_to new_private_service_path, class: 'btn btn-positive pull-right'
+						= fa_icon 'plus'
+				ul.list-group
+					- @services.each do |service|
+						li.list-group-item
+							.row
+								.col-xs-3.service-image-col
+									= image_tag !service.image.blank? ? "services/#{service.image}" : 'placeholder.png', class: 'service-image'
+								.col-xs-6.service-description-col
+									h4
+										= service.name
+									= service.invitation
+								.col-xs-3.service-actions-col
+									= link_to private_services_classifications_path(service_id: service.id, classification_id: params[:classification_id]), method: :post, class: 'btn btn-amethyst'
+										= fa_icon 'link'
+										|  Enlazar
