@@ -20,12 +20,20 @@ header.show-services-header
 				|  Regresar
 
 	.row
-		.col-xs-offset-1.col-xs-3
+		.col-xs-1
+		.col-xs-4.vcenter
 			= image_tag !@service.image.blank? ? "services/#{@service.image}" : 'placeholder.png', class: 'service-show-image'
 
-		.col-xs-8
-			= "$#{@service.price}"
-			br
-			h4
+		.col-xs-7.vcenter
+			h3
+				| Precio:
+			p
+				= "$#{@service.price}"
+			h3
 				| Invitación:
-			= @service.invitation
+			p
+				= @service.invitation
+			h3
+				| Descripción:
+			p
+				= @service.description

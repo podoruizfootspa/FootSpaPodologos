@@ -17,10 +17,10 @@ header.comments-header
 					= fa_icon 'check-square-o'
 					= " Aprobados (#{@count_approved_comments})"
 
-	- @comments.each do |comment|
+	- @comments.each_with_index do |comment, index|
 		.row
 			.col-xs-offset-1.col-xs-2
-				= image_tag 'user_01.png', class: 'user-image'
+				= image_tag "users/0#{comment.id % 10}.png", class: 'user-image'
 			.col-xs-7
 				.panel.arrow
 					.panel-body
@@ -35,13 +35,13 @@ header.comments-header
 									= comment.created_at.strftime('%d/%m/%Y')
 							.col-xs-7
 								= comment.body
-							- if comment.status == 'No_aprobado'
-								.col-xs-2.comments-btns
+							.col-xs-2.comments-btns
+								- if comment.status == 'No_aprobado'
 									.btn.btn-approve-comment
 										= link_to private_approve_comment_path(comment: comment.id)
 											= fa_icon 'check'
 											|  Aprobar
-									.btn.btn-deny-comment
-										= link_to private_comment_path(comment.id), method: :delete
-											= fa_icon 'times'
-											|  Eliminar
+								.btn.btn-deny-comment
+									= link_to private_comment_path(comment.id), method: :delete
+										= fa_icon 'times'
+										|  Eliminar

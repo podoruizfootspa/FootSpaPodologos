@@ -1,0 +1,34 @@
+footer.footer-content
+	.container-fluid
+		.row
+			.col-xs-offset-1.col-xs-2.footer-logo-col.vcenter
+				= image_tag 'Logo.png', class: 'footer-logo'
+			.col-xs-6.footer-contact-info-col.vcenter
+				h4
+					= fa_icon 'map-marker'
+					|  5 de Febreo #1557, Col. Nuevo Repueblo
+					br
+					br
+					= fa_icon 'mobile'
+					|  +52 1 818 020 9010
+					br
+					br
+					= fa_icon 'phone'
+					|  (81) 8129 0711
+			.col-xs-2.footer-social-networks-col.vcenter
+				= link_to '#'
+					span.fa-stack.fa-lg
+						i.fa.fa-circle-thin.fa-stack-2x
+						i.fa.fa-facebook.fa-stack-1x
+				br
+				= link_to '#'
+					span.fa-stack.fa-lg
+						i.fa.fa-circle-thin.fa-stack-2x
+						i.fa.fa-twitter.fa-stack-1x
+				br
+				= link_to '#'
+					span.fa-stack.fa-lg
+						i.fa.fa-circle-thin.fa-stack-2x
+						i.fa.fa-whatsapp.fa-stack-1x
+	.container-fluid.copyright-content
+		| Iknextia © 2017 derechos reservados.

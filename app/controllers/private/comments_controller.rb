@@ -12,10 +12,22 @@ class Private::CommentsController < Private::BaseController
 		redirect_to private_comments_path status: 1
 	end
 
+	def create
+		@comment = Comment.new(comment_params)
+		@comment.save
+		redirect_to public_service_path(id: @comment.service_id)
+	end
+
 	def approve_comment
 		@comment = Comment.find(params[:comment])
 		@comment.status = 0
 		@comment.save
 		redirect_to private_comments_path status: 0
+	end
+
+	private
+
+	def comment_params
+		params.require(:comment).permit(:title, :body, :users_name, :status, :service_id)
 	end
 end

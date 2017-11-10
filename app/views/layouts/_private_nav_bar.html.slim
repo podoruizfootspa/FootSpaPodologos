@@ -29,11 +29,11 @@ nav.navbar.navbar-inverse.navbar-fixed-top
 					li
 						= link_to private_comments_path(status: 1)
 							| Comentarios
-				- if controller_name == 'promotions'
+				/- if controller_name == 'promotions'
 					li.active
 						a href='#'
 							| Promociones
-				- else
+				/- else
 					li
 						a href='#'
 							| Promociones

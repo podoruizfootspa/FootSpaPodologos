@@ -1,3 +1,9 @@
+.vcenter{
+	display: inline-block;
+	vertical-align: middle;
+	float: none;
+}
+
 /*	Index Services header style	*/
 .services-header{
 	position: relative;

@@ -35,11 +35,11 @@ nav.navbar.navbar-inverse.navbar-fixed-top
 							- services.each do |service|
 								- if action_name == 'service' && params[:name] == service
 									li.active
-										= link_to public_service_path(name: service[:name])
+										= link_to public_service_path(id: service[:id])
 											= service[:name]
 								- else
 									li
-										= link_to public_service_path(name: service[:name])
+										= link_to public_service_path(id: service[:id])
 											= service[:name]
 
 				/- services = Service.all.pluck(:name)

@@ -1,0 +1,27 @@
+.footer-content{
+	background-color: #7f8c8d;
+	color: #fff;
+}
+
+.footer-content .footer-logo-col .footer-logo{
+	width: 100%;
+}
+
+.footer-content .footer-contact-info-col{
+	text-align: center;
+}
+
+.vcenter {
+	display: inline-block;
+	vertical-align: middle;
+	float: none;
+}
+
+.footer-content .footer-social-networks-col{
+	text-align: center;
+}
+
+.copyright-content{
+	background-color: #333;
+	text-align: center;
+}

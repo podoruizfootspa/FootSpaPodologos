@@ -51,6 +51,10 @@ class Private::ServicesController < Private::BaseController
 	end
 
 	def destroy
+		@services_classifications = ServicesClassification.where(service_id: params[:id])
+		@services_classifications.destroy_all
+		@comments = Comment.where(service_id: params[:id])
+		@comments.destroy_all
 		@service = Service.find(params[:id])
 		@service.destroy
 		redirect_to private_services_path

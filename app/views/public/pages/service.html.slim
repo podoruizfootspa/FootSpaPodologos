@@ -1,6 +1,80 @@
-br
-br
-br
-br
-h1
-	= @service.inspect
+header.public-service-header style="background: linear-gradient(rgba(144, 198, 83, 0.5), rgba(144, 198, 83, 0.5)), url(/assets/services/#{@service.image}); background-size: cover;"
+	.public-service-header-title
+		h1
+			= " #{@service.name}"
+		br
+		= link_to '#service-description', class: 'btn btn-default'
+			i.fa.fa-angle-double-down.fa-3x
+
+
+.container-fluid.public-service-content#service-description
+	.row
+		.col-xs-offset-4.col-xs-4
+			h3
+				= @service.invitation
+			hr.left-hr
+			hr.right-hr
+			br
+			br
+		.col-xs-5.vcenter
+			p
+				= @service.description
+				br
+				br
+				strong
+					= "Precio: $#{@service.price}"
+		.col-xs-3.vcenter
+			= image_tag !@service.image.blank? ? "services/#{@service.image}" : 'placeholder.png', class: 'public-service-img'
+		.col-xs-12
+			br
+			br
+			= link_to '#create-comment-section', class: 'btn btn-positive'
+				| Danos tu opinión
+
+
+- if @comments.count > 0
+	.container-fluid.service-comments-content
+		- @comments.each_with_index do |comment, index|
+			- if index < 6
+				.row
+					.col-xs-offset-1.col-xs-2
+						= image_tag "users/0#{comment.id % 10}.png", class: 'user-image'
+					.col-xs-7
+						.panel.arrow
+							.panel-body
+								.row
+									.col-xs-3
+										strong
+											= comment.users_name
+										br
+										small
+											= comment.created_at.strftime('%d/%m/%Y')
+									.col-xs-7
+										strong
+											= comment.title
+										br
+										= comment.body
+
+
+.container-fluid.new-comment-content#create-comment-section
+	= form_for [:private, @comment] do |f|
+		form
+			.row style='width: 100%;'
+				.col-xs-offset-2.col-xs-8
+					.new-comment-form-container
+						h3
+							| Compártenos tu experiencia
+						.row.form-row
+							.col-xs-8.vcenter
+								= f.text_field :users_name, class: 'form-control form-field', placeholder: 'Nombre y apellido'
+						.row.form-row
+							.col-xs-8.vcenter
+								= f.text_field :title, class: 'form-control form-field', placeholder: 'Título de su comentario'
+						.row.form-row
+							.col-xs-8.vcenter
+								= f.text_area :body, class: 'form-control form-field', placeholder: 'Escriba aquí su comentario'
+								= f.hidden_field :status, value: 'No_aprobado'
+								= f.hidden_field :service_id, value: params[:id]
+						.row.form-row
+							.col-xs-12
+								= f.submit 'Enviar', class: 'btn btn-positive'
