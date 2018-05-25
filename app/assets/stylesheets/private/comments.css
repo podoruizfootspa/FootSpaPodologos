@@ -5,7 +5,7 @@
 		rgba(144, 198, 83, 0.5),
 		rgba(144, 198, 83, 0.5)
 		),
-		url(../comments_header.jpg);
+		url(<%= asset_path 'comments_header.jpg' %>);
 	background-size: cover;
 	background-position: bottom center;
 	background-attachment: fixed;

@@ -11,7 +11,7 @@
 		rgba(144, 198, 83, 0.5),
 		rgba(144, 198, 83, 0.5)
 		),
-		url(../services_header.jpg);
+		url(<%= asset_path 'services_header.jpg' %>);
 	background-size: cover;
 	background-position: top center;
 	background-attachment: fixed;
@@ -90,7 +90,7 @@
 		rgba(144, 198, 83, 0.5),
 		rgba(144, 198, 83, 0.5)
 		),
-		url(../services_header.jpg);
+		url(<%= asset_path 'services_header.jpg' %>);
 	background-size: cover;
 	background-position: top center;
 	background-attachment: fixed;
@@ -135,7 +135,7 @@
 		rgba(144, 198, 83, 0.5),
 		rgba(144, 198, 83, 0.5)
 		),
-		url(../services_header.jpg);
+		url(<%= asset_path 'services_header.jpg' %>);
 	background-size: cover;
 	background-position: bottom center;
 	background-attachment: fixed;
@@ -178,7 +178,7 @@
 		rgba(144, 198, 83, 0.5),
 		rgba(144, 198, 83, 0.5)
 		),
-		url(../services_header.jpg);
+		url(<%= asset_path 'services_header.jpg' %>);
 	background-size: cover;
 	background-position: bottom center;
 	background-attachment: fixed;
