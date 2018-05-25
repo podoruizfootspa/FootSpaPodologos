@@ -5,9 +5,18 @@ default: &default
 
 development:
   <<: *default
+  username: root
+  password: Gallo.23gallogol
+  host: localhost
+  database: FootSpaPodologos_development
 
 test:
   <<: *default
+  username: root
+  password: Gallo.23gallogol
+  host: localhost
+  database: FootSpaPodologos_test
 
 production:
   <<: *default
+  database: db/production.sqlite3
