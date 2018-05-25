@@ -1,4 +1,4 @@
-header.public-service-header style="background: linear-gradient(rgba(144, 198, 83, 0.5), rgba(144, 198, 83, 0.5)), url(/assets/services/#{@service.image}); background-size: cover;"
+header.public-service-header style="background: linear-gradient(rgba(144, 198, 83, 0.5), rgba(144, 198, 83, 0.5)), url(<%= asset_path '#{@service.image}' %>); background-size: cover;"
 	.public-service-header-title
 		h1
 			= " #{@service.name}"
