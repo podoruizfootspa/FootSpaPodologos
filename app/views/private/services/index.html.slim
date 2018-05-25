@@ -34,24 +34,6 @@ header.services-header
 .container_fluid.content
 	.row
 		- @services.each_with_index do |service, index|
-			/- if index % 2 == 0
-				.col-xs-offset-2.col-xs-4
-					= link_to private_service_path(service), class: 'thumbnail'
-						= image_tag !service.image.blank? ? "services/#{service.image}" : 'placeholder.png', class: 'thumbnail-image'
-						.caption
-							strong
-								= "#{service.name}"
-						.caption
-							= "$#{service.price}"
-			/- else
-				.col-xs-4
-					= link_to private_service_path(service), class: 'thumbnail'
-						= image_tag !service.image.blank? ? "services/#{service.image}" : 'placeholder.png', class: 'thumbnail-image'
-						.caption
-							strong
-								= "#{service.name}"
-						.caption
-							= "$#{service.price}"
 			.col-xs-4
 				= link_to private_service_path(service), class: 'thumbnail'
 					= image_tag !service.image.blank? ? "services/#{service.image}" : 'placeholder.png', class: 'thumbnail-image'
