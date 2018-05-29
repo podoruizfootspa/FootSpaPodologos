@@ -5,7 +5,7 @@ header.edit-service-header
 			= " Editar #{@service.name}"
 
 .container_fluid.edit-service-form-content
-	= form_for [:private, @service] do |f|
+	= form_for [:private, @service], html: { multipart: true } do |f|
 		form
 			.row
 				.col-xs-offset-2.col-xs-6
@@ -33,9 +33,9 @@ header.edit-service-header
 						= f.text_area :description, class: 'form-control', placeholder: 'Descripción del nuevo servicio.'
 
 					.form-group
-						= f.label :image
+						= f.label :image_2
 							| Imagen
-						= f.file_field :image
+						= f.file_field :image_2
 			.row
 				.col-xs-offset-2.col-xs-8.edit-service-form-btns-col
 					= f.submit 'Guardar', class: 'btn btn-positive btn-save'

@@ -16,12 +16,14 @@ class Private::ServicesController < Private::BaseController
 
 	def create
 		params[:service][:name].strip!
+=begin
 		uploaded_io = params[:service][:image]
 		uploaded_io.original_filename = "service_#{params[:service][:name].gsub(' ', '_').camelize}.jpg"
 		params[:service][:image] = "service_#{params[:service][:name].gsub(' ', '_').camelize}.jpg"
 		File.open(Rails.root.join('app', 'assets', 'images', 'services', uploaded_io.original_filename), 'wb') do |file|
 			file.write(uploaded_io.read)
 		end
+=end
 		@service = Service.new(service_params)
 		if @service.save
 			redirect_to [:private, @service]
@@ -36,14 +38,14 @@ class Private::ServicesController < Private::BaseController
 
 	def update
 		params[:service][:name].strip!
-		if params[:sevice][:image]
-			uploaded_io = params[:service][:image]
-			uploaded_io.original_filename = "service_#{params[:service][:name].gsub(' ', '_').camelize}.jpg"
-			params[:service][:image] = "service_#{params[:service][:name].gsub(' ', '_').camelize}.jpg"
-			File.open(Rails.root.join('app', 'assets', 'images', 'services', uploaded_io.original_filename), 'wb') do |file|
-				file.write(uploaded_io.read)
-			end
+=begin
+		uploaded_io = params[:service][:image]
+		uploaded_io.original_filename = "service_#{params[:service][:name].gsub(' ', '_').camelize}.jpg"
+		params[:service][:image] = "service_#{params[:service][:name].gsub(' ', '_').camelize}.jpg"
+		File.open(Rails.root.join('app', 'assets', 'images', 'services', uploaded_io.original_filename), 'wb') do |file|
+			file.write(uploaded_io.read)
 		end
+=end
 		@service = Service.find(params[:id])
 		if @service.update(service_params)
 			redirect_to [:private, @service]
@@ -65,6 +67,6 @@ class Private::ServicesController < Private::BaseController
 	private
 
 	def service_params
-		params.require(:service).permit(:name, :price, :invitation, :description, :image)
+		params.require(:service).permit(:name, :price, :invitation, :description, :image_2)
 	end
 end
