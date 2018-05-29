@@ -28,7 +28,7 @@ header.classifications-header
 							li.list-group-item
 								.row
 									.col-xs-3.service-image-col
-										= image_tag !service.image.blank? ? "services/#{service.image}" : 'placeholder.png', class: 'service-image'
+										= image_tag !service.image.blank? && File.exist?(Rails.root.join('app', 'assets', 'images', 'services', service.image)) ? "services/#{service.image}" : 'placeholder.png', class: 'service-image'
 									.col-xs-6.service-description-col
 										h4
 											= service.name
@@ -37,7 +37,7 @@ header.classifications-header
 										.btn-group
 											button.btn.btn-turquoise.dropdown-toggle data-toggle='dropdown' type='button'
 												= fa_icon 'eye'
-												|  Acciones 
+												|  Acciones
 												= fa_icon 'angle-down'
 											ul.dropdown-menu role='menu'
 												li

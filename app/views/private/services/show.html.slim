@@ -22,9 +22,7 @@ header.show-services-header
 	.row
 		.col-xs-1
 		.col-xs-4.vcenter
-			= image_tag @service.image_2, class: 'service-show-image'
-		/.col-xs-4.vcenter
-			= image_tag !@service.image.blank? ? "services/#{@service.image}" : 'placeholder.png', class: 'service-show-image'
+			= image_tag !@service.image.blank? && File.exist?(Rails.root.join('app', 'assets', 'images', 'services', @service.image)) ? "services/#{@service.image}" : 'placeholder.png', class: 'service-show-image'
 
 		.col-xs-7.vcenter
 			h3

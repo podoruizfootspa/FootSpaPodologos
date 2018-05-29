@@ -24,7 +24,7 @@ header.public-service-header style="background: linear-gradient(rgba(144, 198, 8
 				strong
 					= "Precio: $#{@service.price}"
 		.col-xs-3.vcenter
-			= image_tag !@service.image.blank? ? "services/#{@service.image}" : 'placeholder.png', class: 'public-service-img'
+			= image_tag !@service.image.blank? && File.exist?(Rails.root.join('app', 'assets', 'images', 'services', @service.image)) ? "services/#{@service.image}" : 'placeholder.png', class: 'public-service-img'
 		.col-xs-12
 			br
 			br
