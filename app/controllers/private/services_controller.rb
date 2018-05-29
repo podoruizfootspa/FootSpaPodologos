@@ -43,6 +43,7 @@ class Private::ServicesController < Private::BaseController
 			File.open(Rails.root.join('app', 'assets', 'images', 'services', uploaded_io.original_filename), 'wb') do |file|
 				file.write(uploaded_io.read)
 			end
+		end
 		@service = Service.find(params[:id])
 		if @service.update(service_params)
 			redirect_to [:private, @service]
