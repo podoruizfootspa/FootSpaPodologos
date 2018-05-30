@@ -28,7 +28,10 @@ header.classifications-header
 							li.list-group-item
 								.row
 									.col-xs-3.service-image-col
-										= image_tag !service.image.blank? && File.exist?(Rails.root.join('app', 'assets', 'images', 'services', service.image)) ? "services/#{service.image}" : 'placeholder.png', class: 'service-image'
+										- if service.image.blank? || !File.exist?(Rails.root.join('app', 'assets', 'images', 'services', service.image))
+											= image_tag 'placeholder.png', class: 'service-image'
+										- else
+											= image_tag "services/#{service.image}", class: 'service-image'
 									.col-xs-6.service-description-col
 										h4
 											= service.name
