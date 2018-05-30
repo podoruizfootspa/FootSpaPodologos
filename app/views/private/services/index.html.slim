@@ -36,7 +36,10 @@ header.services-header
 		- @services.each_with_index do |service, index|
 			.col-xs-4
 				= link_to private_service_path(service), class: 'thumbnail'
-					= image_tag !service.image.blank? && File.exist?(Rails.root.join('app', 'assets', 'images', 'services', service.image)) ? "services/#{service.image}" : 'placeholder.png', class: 'thumbnail-image'
+					- if service.image.blank? || !File.exist?(Rails.root.join('app', 'assets', 'images', 'services', service.image))
+						= image_tag 'placeholder.png', class: 'thumbnail-image'
+					- else
+						= image_tag "services/#{service.image}", class: 'thumbnail-image'
 					.caption
 						strong
 							= "#{service.name}"
