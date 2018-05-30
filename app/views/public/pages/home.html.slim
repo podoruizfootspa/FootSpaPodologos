@@ -16,18 +16,18 @@ header.home-header
 						= link_to public_service_path(id: service.id), class: 'btn btn-turquoise'
 							| Más información
 					.col-xs-4.vcenter
-						- if !service.image.blank? && File.exist?(Rails.root.join('app', 'assets', 'images', 'services', service.image))
-							= image_tag "services/#{service.image}", style: 'width: 100%;'
+						- if service.image.blank? || !File.exist?(Rails.root.join('app', 'assets', 'images', 'services', service.image))
+							= image_tag 'placeholder.png', style: 'width: 100%'
 						- else
-							= image_tag 'placeholder.png', style: 'width: 100%;'
+							= image_tag "services/#{service.image}", style: 'width: 100%'
 
 			- else
 				.row
 					.col-xs-offset-1.col-xs-4.vcenter
-						- if !service.image.blank? && File.exist?(Rails.root.join('app', 'assets', 'images', 'services', service.image))
-							= image_tag "services/#{service.image}", style: 'width: 100%;'
+						- if service.image.blank? || !File.exist?(Rails.root.join('app', 'assets', 'images', 'services', service.image))
+							= image_tag 'placeholder.png', style: 'width: 100%'
 						- else
-							= image_tag 'placeholder.png', style: 'width: 100%;'
+							= image_tag "services/#{service.image}", style: 'width: 100%'
 					.col-xs-7.vcenter
 						h2
 							= service.name
